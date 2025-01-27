@@ -22,4 +22,4 @@ def divide(x, y):
     
 
 if __name__ == "__main__":
-    print("cal modual for all data")
+    print("cal modual run in main file.....")
