@@ -9,7 +9,7 @@ def time():
     labal.config(text=string)
     labal.after(1000,time)
 
-labal = tk.Label(root, font=('calibari',50,'bold'),background='yellow',foreground='black')
+labal = tk.Label(root, font=('calibari',50,'bold'),background='pink',foreground='red')
 labal.pack(anchor='center')
 
 time()
