@@ -6,9 +6,9 @@ apikey="ed8084c4"
 
 st.title("SEARCH MOVIE AND TV SHOW IN IMDB..😎")
 
-search=st.text_input("Enter movie and tv name show to find:")
+search=st.text_input("Enter movie and tv show name to find:")
 
-if st.button("Get"):
+if st.button("🔎SEARCH"):
     if search:
         api_url = f"{api}?t={search}&apikey={apikey}"
 
@@ -28,8 +28,8 @@ if st.button("Get"):
             st.image(data['Poster'],caption=data['Title'])
             
         else:
-            st.error("❌ Movie not found. Please check the name and try again.")
+            st.error("⚠️ Error fetching data from the IMDB API. Try again later.")
     else:
-        st.error("⚠️ Error fetching data from the OMDB API. Try again later.")
+        st.error("❌ Movie not found. Please check the name and try again.")
 else:
-    st.warning("🔎 Please enter a movie name to search.")
+    st.warning("🎬 Please enter a movie name to search.")
