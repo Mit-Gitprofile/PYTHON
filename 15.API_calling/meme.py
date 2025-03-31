@@ -1,15 +1,40 @@
 import requests
 import streamlit as st
 
-st.title("-------------------")
-st.title("| 🌥️P-WEATHER APP |")
-st.title("-------------------")
+api="https://www.omdbapi.com"
+apikey="ed8084c4"
 
-city = st.text_input("ENTER CITY NAME :")
+st.title("SEARCH MOVIE AND TV SHOW IN IMDB..😎")
 
-api = f"http://www.omdbapi.com/?i=tt3896198&apikey=30fec5b4"
+search=st.text_input("Enter movie and tv show name to find:")
 
+if st.button("🔎SEARCH"):
+    if search:
+        api_url = f"{api}?t={search}&apikey={apikey}"
 
-if st.button("🔍SEARCH") :
-        response = requests.get(api)
-        response.json()
+        response = requests.get(api_url)
+        
+        if response.status_code==200:
+            data=response.json()
+            
+            st.subheader("🎬 Movie Details:")
+            st.write("Title :",data['Title'])
+            st.write("Year :",data['Year'])
+            st.write("Rated :",data['Rated'])
+            st.write("Released :",data['Released'])
+            st.write("Runtime :",data['Runtime'])
+            st.write("Genre :",data['Genre'])
+            st.write("imdbRating :",data['imdbRating'])
+            st.image(data['Poster'],caption=data['Title'])
+            st.write("Director :",data['Director'])
+            st.write("Writer :",data['Writer'])
+            st.write("Actors :",data['Actors'])
+            st.write("Language :",data['Language'])
+            st.write("BoxOffice :",data['BoxOffice'])
+            
+        else:
+            st.error("⚠️ Error fetching data from the IMDB API. Try again later.")
+    else:
+        st.error("❌ Movie not found. Please check the name and try again.")
+else:
+    st.warning("🎬 Please enter a movie name to search.")

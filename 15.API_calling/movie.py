@@ -26,6 +26,11 @@ if st.button("🔎SEARCH"):
             st.write("Genre :",data['Genre'])
             st.write("imdbRating :",data['imdbRating'])
             st.image(data['Poster'],caption=data['Title'])
+            st.write("Director :",data['Director'])
+            st.write("Writer :",data['Writer'])
+            st.write("Actors :",data['Actors'])
+            st.write("Language :",data['Language'])
+            st.write("BoxOffice :",data['BoxOffice'])
             
         else:
             st.error("⚠️ Error fetching data from the IMDB API. Try again later.")
